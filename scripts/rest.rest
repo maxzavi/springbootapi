@@ -12,3 +12,7 @@ curl  --request
 ###
 curl  --request 
     GET 'http://localhost:8080/book/api/v1/3'
+
+### People
+curl  --request 
+    GET 'http://localhost:8080/people/api/v1/45'

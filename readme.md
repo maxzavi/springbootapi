@@ -37,3 +37,14 @@ In RestController, use **Tag** annotation
 ```java
 @Tag(name = "Price", description = "Price API")
 ```
+
+## Api Client use *okhttp*
+
+```xml
+    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>4.9.3</version>
+    </dependency>
+```
