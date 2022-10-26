@@ -38,7 +38,9 @@ In RestController, use **Tag** annotation
 @Tag(name = "Price", description = "Price API")
 ```
 
-## Api Client use *okhttp*
+## Api Client use *okhttp* 
+
+Create repository people, using https://swapi.dev/
 
 ```xml
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
@@ -48,3 +50,4 @@ In RestController, use **Tag** annotation
       <version>4.9.3</version>
     </dependency>
 ```
+
