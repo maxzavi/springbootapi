@@ -51,3 +51,6 @@ Create repository people, using https://swapi.dev/
     </dependency>
 ```
 
+Sample Repository, implementation
+
+Create entity starship
