@@ -20,8 +20,12 @@ public class PeopleController {
     PeopleRepository peopleRepository;
     @GetMapping("/{id}")
     public ResponseEntity<People> get (@PathVariable int id){
-        People people = peopleRepository.getById(id);
-        if (people!=null) return ResponseEntity.ok(people);
-        else return ResponseEntity.notFound().build();
+        try {
+            People people = peopleRepository.getById(id);
+            if (people!=null) return ResponseEntity.ok(people);
+            else return ResponseEntity.notFound().build();                
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }

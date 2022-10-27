@@ -15,4 +15,4 @@ curl  --request
 
 ### People
 curl  --request 
-    GET 'http://localhost:8080/people/api/v1/45'
+    GET 'http://localhost:8080/people/api/v1/1'

@@ -14,31 +14,29 @@ import pe.maxz.springbootapi.entity.People;
 
 @Repository
 public class PeopleRepository {
-    public People getById(int id){
-        //return new People(1, "Luck", "182");
+    public People getById(int id) throws Exception{
         People result =null;
-        OkHttpClient client = new OkHttpClient().newBuilder()
-        .build();
-      Request request = new Request.Builder()
-        .url("https://swapi.dev/api/people/"+id+"/")
-        .method("GET",null)
-        .build();
+        OkHttpClient client = new OkHttpClient()
+            .newBuilder()
+            .build();
+        Request request = new Request.Builder()
+            .url("https://swapi.dev/api/people/"+id+"/")
+            .method("GET",null)
+            .build();
         try {
             Response response = client.newCall(request).execute();
-            String stringResponse = response.body().string();
-            if (response.isSuccessful()){
+            if (response.code()==200){
+                String stringResponse = response.body().string();
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         
                 result = objectMapper.readValue(stringResponse, new TypeReference<People>(){});
                 result.setId(id);             
-    
-            }else{
+            }else if (response.code()==404){
                 result=null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            result=null;
+            throw e;
         }
         return result;
     }
