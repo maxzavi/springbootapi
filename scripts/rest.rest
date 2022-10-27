@@ -20,3 +20,8 @@ curl  --request
 ### Starship
 curl  --request 
     GET 'http://localhost:8080/starship/api/v1/11'
+
+### JdbcTemplate
+
+curl  --request 
+    GET 'http://localhost:8080/product/api/v1/3'

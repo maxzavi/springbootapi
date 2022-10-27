@@ -54,3 +54,19 @@ Create repository people, using https://swapi.dev/
 Sample Repository, implementation
 
 Create entity starship
+
+Add test
+
+## Jdbctemplate
+Create entity Product, repository ProductRepository, ProductRepositoryJdbc, add test
+
+```sql
+CREATE TABLE product(ID INT PRIMARY KEY,
+   NAME VARCHAR(255), price double );
+
+insert into product(id, name, price) values (1,'Led Ultra HD',1899.0)
+```
+
+### Pagination
+
+https://javabydeveloper.com/spring-jdbctemplate-pagination-examples/
