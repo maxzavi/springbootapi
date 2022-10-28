@@ -2,6 +2,8 @@ package pe.maxz.springbootapi.repository;
 
 import java.sql.ResultSet;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -41,6 +43,26 @@ public class ProductRepositoryJdbc implements ProductRepository{
             }
         );
         return product;
+    }
+    @Override
+    public List<Product> findAll() {
+        List<Product> products = new ArrayList<Product>();
+        String query = "select id, name, price, brandname from product";
+        products = jdbcTemplate.query(query,
+            (ResultSet rs)->{
+                List<Product> results = new ArrayList<Product>();
+                while(rs.next()){
+                    Product product = new Product();
+                    product.setId(rs.getInt("id"));
+                    product.setName(rs.getString("name"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setBrandName(rs.getString("brandname"));
+                    results.add(product);
+                }
+                return results;
+            }
+        );
+        return products;
     }
     
 }

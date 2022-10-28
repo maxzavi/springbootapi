@@ -24,4 +24,8 @@ curl  --request
 ### JdbcTemplate
 
 curl  --request 
-    GET 'http://localhost:8080/product/api/v1/1'
+    GET 'http://localhost:8080/product/api/v1/2'
+
+### List products
+curl  --request 
+    GET 'http://localhost:8080/product/api/v1/'

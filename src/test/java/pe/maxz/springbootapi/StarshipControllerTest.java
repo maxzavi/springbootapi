@@ -22,22 +22,28 @@ public class StarshipControllerTest {
 
 	@Test
 	public void testDefault() throws Exception {
-		this.mockMvc.perform(get("/default/api/v1/")).andDo(print()).andExpect(status().isOk())
-				.andExpect(content().string(containsString("Hello world repo")));
+		mockMvc.perform(get("/default/api/v1/"))
+			.andDo(print())
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("Hello world repo")));
 	}
 	@Test
 	public void testNotFound() throws Exception {
-		this.mockMvc.perform(get("/starship/api/v1/1")).andDo(print()).andExpect(status().isNotFound());
+		mockMvc.perform(get("/starship/api/v1/1"))
+			.andDo(print())
+			.andExpect(status().isNotFound());
 	}
 	@Test
 	public void testGetIdOKName() throws Exception {
-		this.mockMvc.perform(get("/starship/api/v1/9")).andDo(print())
+		mockMvc.perform(get("/starship/api/v1/9"))
+			.andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(content().string(containsString("Death Star")));
 	}
 	@Test
 	public void testGetIdOKManufacturer() throws Exception {
-		this.mockMvc.perform(get("/starship/api/v1/12")).andDo(print())
+		mockMvc.perform(get("/starship/api/v1/12"))
+			.andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(content().string(containsString("Incom Corporation")));
 	}

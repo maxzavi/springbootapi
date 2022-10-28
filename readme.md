@@ -60,6 +60,11 @@ Add test
 ## Jdbctemplate
 Create entity Product, repository ProductRepository, ProductRepositoryJdbc, add test
 
+Create RepositoryTest, using H2 Database, and files creation and load data: 
+
+- resources/jdbc/schema.sql
+- resources/jdbc/test-data.sql
+
 In H2
 ```sql
 CREATE TABLE product(
@@ -71,6 +76,20 @@ CREATE TABLE product(
 insert into product(id, name, price,brandname) values (1,'Led Ultra HD',1899.0,'LG');
 insert into product(id, name, price,brandname) values (2,'Test2',10.99,'Acme');
 ```
+
+add beforeAll, non static method use annotation in class
+
+```java
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+```
+
+Equals for ProductControllerTest, using MockMvc autowired  use annotation in class:
+
+```java
+@AutoConfigureMockMvc
+```
+
+
 
 In Oracle:
 ```sql
@@ -84,7 +103,7 @@ insert into product(id, name, price,brandname) values (1,'Led Ultra HD',1899.0,'
 insert into product(id, name, price,brandname) values (2,'Test2',10.99,'Acme');
 ```
 
-Test with oracle, add in application.properties:
+Test with oracle using curl, postman or test.rest file, add in application.properties:
 
 ```properties
 spring.datasource.url=jdbc:oracle:thin:@//{host}:{port}/{sid}

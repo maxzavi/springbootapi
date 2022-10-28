@@ -1,5 +1,8 @@
 package pe.maxz.springbootapi.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,5 +28,11 @@ public class ProductController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<Product>> findAll(){
+        List<pe.maxz.springbootapi.entity.Product> products = productRepository.findAll();
+        return ResponseEntity.ok(products);
     }
 }
