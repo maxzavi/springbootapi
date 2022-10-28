@@ -2,6 +2,7 @@ package pe.maxz.springbootapi.repository;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -15,11 +16,15 @@ import pe.maxz.springbootapi.entity.Starship;
 @Repository
 public class StarshipRepositoryHttp implements StarshipRepository{
 
+    @Value("${api.starwar.url}")
+    String urlBase;
+
     @Override
     public Starship get(int id) throws Exception  {
         OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
         Request request = new Request.Builder()
-            .url("https://swapi.dev/api/starships/"+ id)
+            //.url("https://swapi.dev/api/starships/"+ id)
+            .url(urlBase+ "/starships/"+ id)
             .method("GET", null)
             .build();
         try {

@@ -57,6 +57,19 @@ Create entity starship
 
 Add test
 
+Environment variables or application.properties, add 
+
+```properties
+api.starwar.url=https://swapi.dev/api
+```
+
+Add annotation @Value for read:
+
+```java
+    @Value("${api.starwar.url}")
+    String urlBase;
+```
+
 ## Jdbctemplate
 Create entity Product, repository ProductRepository, ProductRepositoryJdbc, add test
 

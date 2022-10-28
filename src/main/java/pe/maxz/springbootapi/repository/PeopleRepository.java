@@ -1,6 +1,7 @@
 package pe.maxz.springbootapi.repository;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,13 +15,16 @@ import pe.maxz.springbootapi.entity.People;
 
 @Repository
 public class PeopleRepository {
+    @Value("${api.starwar.url}")
+    String urlBase;
+    
     public People getById(int id) throws Exception{
         People result =null;
         OkHttpClient client = new OkHttpClient()
             .newBuilder()
             .build();
         Request request = new Request.Builder()
-            .url("https://swapi.dev/api/people/"+id+"/")
+            .url(urlBase + "/people/"+id+"/")
             .method("GET",null)
             .build();
         try {

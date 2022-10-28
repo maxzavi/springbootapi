@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.maxz.springbootapi.entity.Starship;
-import pe.maxz.springbootapi.repository.StarshipRepositoryHttp;
+import pe.maxz.springbootapi.repository.StarshipRepository;
 
 @SpringBootTest
-public class StarshipRepository {
+public class StarshipRepositoryTest {
     @Autowired
-    StarshipRepositoryHttp starshipRepository;
+    StarshipRepository starshipRepository;
 
     @Test
     public void getByID() throws Exception{
