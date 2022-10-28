@@ -71,6 +71,8 @@ Add annotation @Value for read:
 ```
 
 ## Jdbctemplate
+
+Add dependecy **JDBC API** from **Spring Initializr: Add starter....**
 Create entity Product, repository ProductRepository, ProductRepositoryJdbc, add test
 
 Create RepositoryTest, using H2 Database, and files creation and load data: 
@@ -90,7 +92,7 @@ insert into product(id, name, price,brandname) values (1,'Led Ultra HD',1899.0,'
 insert into product(id, name, price,brandname) values (2,'Test2',10.99,'Acme');
 ```
 
-add beforeAll, non static method use annotation in class
+add **beforeAll**, non static method use annotation in class
 
 ```java
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -101,8 +103,6 @@ Equals for ProductControllerTest, using MockMvc autowired  use annotation in cla
 ```java
 @AutoConfigureMockMvc
 ```
-
-
 
 In Oracle:
 ```sql
