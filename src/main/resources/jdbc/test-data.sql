@@ -1,2 +1,2 @@
-insert into product(id, name, price) values (1,'Led Ultra HD',1899.0);
-insert into product(id, name, price) values (2,'Test2',1.99);
+insert into product(id, name, price,brandname) values (1,'Led Ultra HD',1899.0,'LG');
+insert into product(id, name, price,brandname) values (2,'Test2',10.99,'Acme');

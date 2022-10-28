@@ -60,11 +60,36 @@ Add test
 ## Jdbctemplate
 Create entity Product, repository ProductRepository, ProductRepositoryJdbc, add test
 
+In H2
 ```sql
-CREATE TABLE product(ID INT PRIMARY KEY,
-   NAME VARCHAR(255), price double );
+CREATE TABLE product(
+   ID INT PRIMARY KEY,
+   NAME VARCHAR(30), 
+   price double,
+   brandname VARCHAR2(25) );
 
-insert into product(id, name, price) values (1,'Led Ultra HD',1899.0)
+insert into product(id, name, price,brandname) values (1,'Led Ultra HD',1899.0,'LG');
+insert into product(id, name, price,brandname) values (2,'Test2',10.99,'Acme');
+```
+
+In Oracle:
+```sql
+CREATE TABLE product(
+   ID INT PRIMARY KEY,
+   NAME VARCHAR(30), 
+   price number,
+   brandname VARCHAR2(25) );
+
+insert into product(id, name, price,brandname) values (1,'Led Ultra HD',1899.0,'LG');
+insert into product(id, name, price,brandname) values (2,'Test2',10.99,'Acme');
+```
+
+Test with oracle, add in application.properties:
+
+```properties
+spring.datasource.url=jdbc:oracle:thin:@//{host}:{port}/{sid}
+spring.datasource.username={username}
+spring.datasource.password={password}
 ```
 
 ### Pagination

@@ -25,34 +25,28 @@ public class ProductRespositoryTest {
     
     DataSource dataSource;
 
-    boolean connected=false;
-
     @BeforeAll
     private  void connect(){
-        if (!connected){
-            this.dataSource = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
+        this.dataSource = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
             .addScript("classpath:jdbc/schema.sql")
             .addScript("classpath:jdbc/test-data.sql")
             .build();
-            connected=true;
-        }
         productRepository.setDataSource(dataSource);
     }
 
     @Test
     public void testNull(){
-        connect();
         Product result =productRepository.getById(1);
         assertNotEquals(result, null);
     }
 
     @Test
     public void testFind(){
-        connect();
         Product product = new Product();
         product.setId(2);
         product.setName("Test2");
-        product.setPrice(1.99);
+        product.setPrice(10.99);
+        product.setBrandName("Acme");
 
         System.out.println("product: "+  product.toString());
         Product result = productRepository.getById(2);

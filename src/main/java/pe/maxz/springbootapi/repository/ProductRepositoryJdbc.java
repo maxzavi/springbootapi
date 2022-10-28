@@ -23,7 +23,7 @@ public class ProductRepositoryJdbc implements ProductRepository{
     @Override
     public Product getById(int id) {
         Product product = null;
-        String query = "select name,price from product where id=?";
+        String query = "select name,price,brandname from product where id=?";
 
         product=jdbcTemplate.query(query, 
             new Object[]{id},
@@ -35,6 +35,7 @@ public class ProductRepositoryJdbc implements ProductRepository{
                     result.setId(id);
                     result.setName(rs.getString("name"));
                     result.setPrice(rs.getDouble("price"));
+                    result.setBrandName(rs.getString("brandname"));
                 }
                 return result;
             }
