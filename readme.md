@@ -73,6 +73,7 @@ Add annotation @Value for read:
 ## Jdbctemplate
 
 Add dependecy **JDBC API** from **Spring Initializr: Add starter....**
+
 Create entity Product, repository ProductRepository, ProductRepositoryJdbc, add test
 
 Create RepositoryTest, using H2 Database, and files creation and load data: 
@@ -104,7 +105,8 @@ Equals for ProductControllerTest, using MockMvc autowired  use annotation in cla
 @AutoConfigureMockMvc
 ```
 
-In Oracle:
+Using oracle database, add dependecy **Oracle Driver** from **Spring Initializr: Add starter....** , scripts in database:
+
 ```sql
 CREATE TABLE product(
    ID INT PRIMARY KEY,
@@ -116,7 +118,7 @@ insert into product(id, name, price,brandname) values (1,'Led Ultra HD',1899.0,'
 insert into product(id, name, price,brandname) values (2,'Test2',10.99,'Acme');
 ```
 
-Test with oracle using curl, postman or test.rest file, add in application.properties:
+Test oracle database controller using curl, postman or test.rest file, add in application.properties:
 
 ```properties
 spring.datasource.url=jdbc:oracle:thin:@//{host}:{port}/{sid}
